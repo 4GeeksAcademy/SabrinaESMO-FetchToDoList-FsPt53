@@ -1,11 +1,11 @@
 import React from "react";
-import Input from "./toDoList";
+import ToDoList from "./toDoList";
 
 
 const Home = () => {
 	return (
 		<div className="text-center">
-			<Input></Input>
+			<ToDoList></ToDoList>
 		</div>
 	);
 };
