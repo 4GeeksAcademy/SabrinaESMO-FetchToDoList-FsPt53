@@ -50,7 +50,7 @@ const ToDoList = () => {
         if (updatedList.length === 0) {
             const defaultTask = {
                 id: 1,
-                label: "No hay tareas, añade alguna.",
+                label: "Tarea por defecto",
                 done: false
             }
             updatedList.push(defaultTask);
@@ -129,7 +129,7 @@ const ToDoList = () => {
                 })}
             </ul>
 
-            <div>{tasks.length} Tareas pendientes</div>
+            <div>Actualmente hay {tasks.length} en la lista.</div>
         </div>
     );
 
