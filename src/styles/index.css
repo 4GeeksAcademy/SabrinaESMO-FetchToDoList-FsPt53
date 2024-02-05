@@ -2,11 +2,6 @@ body{
     background-color: rgb(224, 219, 251);
 }
 
-.contentBox{
-    background-color:ghostwhite;
-    border-radius: 20px;
-}
-
 button{
     border: none;
     background-color: transparent;
@@ -16,8 +11,17 @@ li{
     list-style-type: none;
 }
 
-.trashCan:hover{
-    color: red;
+input{
+    padding-left: 15px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    border-radius: 20px;
+}
+
+.contentBox{
+    background-color:ghostwhite;
+    border-radius: 20px;
 }
 
 .itemContainer{
@@ -34,6 +38,15 @@ li{
 
 }
 
+.createUserButton{
+    background-color: aquamarine;
+    padding: 5px 15px 5px 15px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    border-radius: 20px;
+}
+
 .deleteButton {
     visibility: hidden;
 }
@@ -42,10 +55,7 @@ li{
     visibility: visible;
 }
 
-input{
-    padding-left: 15px;
-    border-style: solid;
-    border-color: grey;
-    border-width: 1px;
-    border-radius: 20px;
+.trashCan:hover{
+    color: red;
 }
+

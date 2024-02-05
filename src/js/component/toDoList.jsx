@@ -46,15 +46,13 @@ const ToDoList = () => {
 
 
     const deleteTask = async (id) => {
-        const updatedList = tasks.filter((task) => task.id !== id);
-        if (updatedList.length === 0) {
-            const defaultTask = {
-                id: 1,
-                label: "Tarea por defecto",
-                done: false
-            }
-            updatedList.push(defaultTask);
+        if (tasks.length === 1) {
+            alert("La lista no puede quedar vacía. Debes tener al menos una tarea.");
+            return;
         }
+    
+        const updatedList = tasks.filter((task) => task.id !== id);
+        
         try {
             const response = await fetch('https://playground.4geeks.com/apis/fake/todos/user/sesmodev',
                 {
@@ -64,6 +62,7 @@ const ToDoList = () => {
                         "Content-Type": "application/json"
                     }
                 });
+    
             if (response.ok) {
                 loadTasks();
             }
@@ -110,26 +109,26 @@ const ToDoList = () => {
 
 
     return (
-        <div className="text-center">
-            <h1>Sesmodev ToDoList</h1>
-            <button onClick={() => handleOnCreateUser()}>Crear usuario</button>
-
+        <div className="contentBox text-center w-75 mx-auto p-2 mt-5">
+            <h1 className="text-center mt-1 ">Tareas pendientes de Sesmodev</h1>
+            <button className="createUserButton" onClick={() => handleOnCreateUser()}><i className="fa-solid fa-user-plus">&emsp;</i>Crear usuario</button>
             <div>
+            <br></br>
                 <input type="text" onChange={(e) => setInputValue(e.target.value)} value={inputValue} onKeyDown={handleKeyDown}
                     placeholder="Añadir tarea"></input>
             </div>
-            <ul>
+            <ul className="listContainer mt-3 w-75 mx-auto p-2">
                 {tasks.map((t, index) => {
                     return (
-                        <li key={index}>
+                        <li key={index} className="itemContainer mb-2 text-start position-relative">
+                            <i>&emsp;</i>
                             {`${t.label}`}
-                            <i class="fa-regular fa-trash-can" onClick={() => handleDeleteTask(t.id)}></i>
+                            <button className="deleteButton position-absolute end-0" onClick={() => handleDeleteTask(t.id)}><i className="trashCan fa-regular fa-trash-can"></i></button>
                         </li>
                     )
                 })}
             </ul>
-
-            <div>Actualmente hay {tasks.length} en la lista.</div>
+            <div>Actualmente hay {tasks.length} por finalizar.</div>
         </div>
     );
 
